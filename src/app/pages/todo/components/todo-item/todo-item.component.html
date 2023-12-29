@@ -1,0 +1,36 @@
+@if (!todo.editing) {
+<label>
+  <div class="checkbox-wrapper">
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (click)="toggleTodo(todo.id)"
+    />
+    <svg viewBox="0 0 35.6 35.6">
+      <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+      <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+      <polyline
+        class="check"
+        points="11.78 18.12 15.55 22.23 25.17 12.87"
+      ></polyline>
+    </svg>
+  </div>
+  <p>{{ todo.title | capitalizeFirst }}</p>
+</label>
+<button (click)="editTodo(todo.id)">
+  <ng-icon name="heroPencilSquareMini" size="25px"></ng-icon>
+</button>
+<button (click)="removeTodo(todo.id)">
+  <ng-icon name="heroTrashMini" size="25px"></ng-icon>
+</button>
+} @else {
+<input
+  type="text"
+  placeholder="ToDo title here..."
+  [formControl]="todoTitle"
+  (keydown.enter)="editTodo(todo.id)"
+/>
+<button (click)="editTodo(todo.id)">
+  <ng-icon name="heroCheckCircleMini" size="25px"></ng-icon>
+</button>
+}

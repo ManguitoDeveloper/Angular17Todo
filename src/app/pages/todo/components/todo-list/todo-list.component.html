@@ -1,0 +1,10 @@
+<ul>
+  @for (todo of todos; track todo.id) {
+  <li>
+    <todo-item [todo]="todo"></todo-item>
+  </li>
+  } @empty {
+  <p>Hmm, I see nothing to do here. How about adding a task?</p>
+  <img ngSrc="assets/img/tara.webp" width="300" height="300" priority />
+  }
+</ul>

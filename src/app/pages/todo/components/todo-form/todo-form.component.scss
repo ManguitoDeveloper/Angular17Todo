@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+:host {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(100%, 400px);
+}
+input {
+  width: 100%;
+  border-radius: 20px;
+  background-color: $mangoDarkGreen;
+  color: $mangoWhite;
+  &::placeholder {
+    color: $mangoLightGreen;
+  }
+}
+button {
+  position: absolute;
+  right: 1em;
+  color: $mangoLightGreen;
+  &:hover {
+    color: $mangoOrange;
+  }
+}

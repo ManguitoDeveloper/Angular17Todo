@@ -1,0 +1,9 @@
+<input
+  type="text"
+  placeholder="Add a new Task"
+  [formControl]="newTodo"
+  (keydown.enter)="addNewTodo()"
+/>
+<button (click)="addNewTodo()">
+  <ng-icon name="heroPlusCircleMini" size="25px"></ng-icon>
+</button>

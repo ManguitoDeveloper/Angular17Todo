@@ -1,0 +1,80 @@
+@use "variables" as *;
+@use "texts" as *;
+@use "devices" as *;
+@use "mixins" as *;
+
+.wrapper {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(0, 1fr) [breakout-start] 25px [content-start] min(
+      100% - 50px,
+      640px
+    )
+    [content-end] 25px [breakout-end] minmax(0, 1fr) [full-width-end];
+  grid-template-rows: 1fr 460px;
+  background-color: $mangoGreen;
+  @include device(tablet) {
+    grid-template-columns:
+      [full-width-start] minmax(0, 1fr)
+      [breakout-start] 25px [content-start] min(100% - 50px, 400px)
+      [content-end] 25px [breakout-end] minmax(0, 1fr) [full-width-end];
+  }
+  .top-container {
+    grid-column: content;
+    @include flexbox(column, end, start);
+    @include padding-y(25px);
+    row-gap: 1rem;
+    .todo-welcome {
+      color: $mangoWhite;
+      h2 {
+        font-size: nth($fontSizes, 4);
+        ng-icon {
+          position: relative;
+          top: 2px;
+          left: 4px;
+        }
+      }
+      span {
+        color: $mangoOrange;
+      }
+    }
+  }
+  .todo-list {
+    & > * {
+      width: 100%;
+    }
+    h1 {
+      margin-top: 25px;
+      span {
+        color: $mangoOrange;
+      }
+      line-height: 46px;
+    }
+
+    hr {
+      border: solid $mangoOrange 2px;
+      width: 8ch;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    border-top-left-radius: 40px;
+    background-color: $mangoWhite;
+    grid-column: full-width;
+    display: grid;
+    @include padding-x(25px);
+    @include device(tablet) {
+      grid-column: breakout-start / breakout-end;
+      border-top-right-radius: 40px;
+      grid-template-columns: 400px;
+    }
+    todo-list {
+      height: 310px;
+      overflow-y: scroll;
+      @include scrollbar(6px, $mangoOrange, mix($mangoWhite, black, 95%));
+    }
+    todo-filter {
+      height: 60px;
+    }
+  }
+}

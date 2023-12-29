@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="top-container">
+    <div class="todo-welcome">
+      <h2>
+        Hello, {{ "user" | titlecase }}
+        <span>
+          <ng-icon name="matWavingHandRound" size="30px"></ng-icon>
+        </span>
+      </h2>
+      <p>Let<span>'</span>s get all your tasks done!</p>
+    </div>
+    <todo-form></todo-form>
+  </div>
+  <section class="todo-list">
+    <h1>My ToDo<span>'</span>s</h1>
+    <hr />
+    <todo-list [todos]="todos"></todo-list>
+    <todo-filter></todo-filter>
+  </section>
+</div>

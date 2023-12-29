@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+button {
+  color: mix($mangoWhite, black, 80%);
+  &.active {
+    color: $mangoOrange;
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      border-radius: 10px;
+      border: solid 2px $mangoOrange;
+    }
+  }
+  ng-icon {
+    transition: all ease-in-out 0.2s;
+    &:hover {
+      color: $mangoOrange;
+    }
+  }
+}

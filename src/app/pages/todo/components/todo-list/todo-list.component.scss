@@ -1,0 +1,29 @@
+@use "variables" as *;
+@use "texts" as *;
+
+ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  li {
+    todo-item {
+      min-height: 50px;
+    }
+  }
+  img {
+    position: absolute;
+    bottom: -52px;
+    left: 50%;
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+  p:has(+ img) {
+    color: mix($mangoWhite, black, 50%);
+    text-align: center;
+    width: 260px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    font-size: nth($fontSizes, 4);
+  }
+}

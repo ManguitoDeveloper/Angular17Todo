@@ -1,0 +1,18 @@
+<button
+  (click)="filterTodos('all')"
+  [class.active]="todoFilterSignalRef() === 'all'"
+>
+  <ng-icon name="heroDocumentDuplicateMini" size="40px"></ng-icon>
+</button>
+<button
+  (click)="filterTodos('active')"
+  [class.active]="todoFilterSignalRef() === 'active'"
+>
+  <ng-icon name="heroDocumentTextMini" size="40px"></ng-icon>
+</button>
+<button
+  (click)="filterTodos('completed')"
+  [class.active]="todoFilterSignalRef() === 'completed'"
+>
+  <ng-icon name="heroDocumentCheckMini" size="40px"></ng-icon>
+</button>
