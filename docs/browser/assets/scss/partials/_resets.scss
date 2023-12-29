@@ -1,0 +1,84 @@
+@use "texts" as *;
+@use "devices" as *;
+
+* {
+  @include font("regular");
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+selec {
+  font: inherit;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  height: fit-content;
+  padding: 0.5em 1em;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: nth($fontSizes, 3);
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: nth($fontSizes, 4);
+}
+
+button {
+  all: initial;
+  @include device(tablet) {
+    cursor: pointer;
+  }
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}

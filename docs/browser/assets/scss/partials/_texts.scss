@@ -1,0 +1,15 @@
+@forward "fonts";
+
+$fontSizes: 8px 12px 19px 30px 48px 77px;
+
+@mixin font($type) {
+  @if $type == "title" {
+    font-family: "Afacad", sans-serif;
+    font-weight: 700;
+    font-size: nth($fontSizes, 4);
+  }
+  @if $type == "regular" {
+    font-family: "Afacad", sans-serif;
+    font-weight: 400;
+  }
+}
